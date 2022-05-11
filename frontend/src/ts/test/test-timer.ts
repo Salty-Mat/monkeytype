@@ -16,6 +16,8 @@ import * as SlowTimer from "../states/slow-timer";
 import * as TestActive from "../states/test-active";
 import * as Time from "../states/time";
 import * as TimerEvent from "../observables/timer-event";
+import { io } from "socket.io-client";
+const socket = io("ws://localhost:8080");
 
 let slowTimerCount = 0;
 let timer: NodeJS.Timeout | null = null;
@@ -58,6 +60,8 @@ function calculateWpmRaw(): MonkeyTypes.WordsPerMinuteAndRaw {
   const wpmAndRaw = TestStats.calculateWpmAndRaw();
   if (timerDebug) console.timeEnd("calculate wpm and raw");
   if (timerDebug) console.time("update live wpm");
+  console.log(wpmAndRaw.wpm + " " + Time.get());
+  socket.emit("message", wpmAndRaw.wpm);
   LiveWpm.update(wpmAndRaw.wpm, wpmAndRaw.raw);
   if (timerDebug) console.timeEnd("update live wpm");
   if (timerDebug) console.time("push to history");
