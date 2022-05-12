@@ -60,8 +60,13 @@ function calculateWpmRaw(): MonkeyTypes.WordsPerMinuteAndRaw {
   const wpmAndRaw = TestStats.calculateWpmAndRaw();
   if (timerDebug) console.timeEnd("calculate wpm and raw");
   if (timerDebug) console.time("update live wpm");
-  console.log(wpmAndRaw.wpm + " " + Time.get());
-  socket.emit("message", wpmAndRaw.wpm);
+  console.log(TestWords.words.currentIndex);
+  socket.emit("message", {
+    wpm: wpmAndRaw.wpm,
+    time: Time.get(),
+    words: TestWords.words.currentIndex,
+    totalWords: TestWords.words.length
+  });
   LiveWpm.update(wpmAndRaw.wpm, wpmAndRaw.raw);
   if (timerDebug) console.timeEnd("update live wpm");
   if (timerDebug) console.time("push to history");

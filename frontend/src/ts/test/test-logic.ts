@@ -541,6 +541,7 @@ export function restart(
       (<HTMLElement>document.querySelector("#liveWpm")).innerHTML = "0";
       (<HTMLElement>document.querySelector("#liveAcc")).innerHTML = "100%";
       (<HTMLElement>document.querySelector("#liveBurst")).innerHTML = "0";
+      $("#miniTimerAndLiveWpm").append(`<div class='wpm2'>0</div>`);
 
       if (Config.funbox === "memory") {
         Funbox.startMemoryTimer();

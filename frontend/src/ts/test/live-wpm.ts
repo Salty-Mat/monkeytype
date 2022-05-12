@@ -7,6 +7,7 @@ const miniLiveWpmElement = document.querySelector(
   "#miniTimerAndLiveWpm .wpm"
 ) as Element;
 
+
 export function update(wpm: number, raw: number): void {
   // if (!TestActive.get() || !Config.showLiveWpm) {
   //   hideLiveWpm();
@@ -20,6 +21,7 @@ export function update(wpm: number, raw: number): void {
   if (Config.alwaysShowCPM) {
     number = Math.round(number * 5);
   }
+  miniLiveWpmElement.innerHTML = number.toString();
   miniLiveWpmElement.innerHTML = number.toString();
   liveWpmElement.innerHTML = number.toString();
 }
