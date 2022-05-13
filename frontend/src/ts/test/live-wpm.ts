@@ -22,7 +22,6 @@ export function update(wpm: number, raw: number): void {
     number = Math.round(number * 5);
   }
   miniLiveWpmElement.innerHTML = number.toString();
-  miniLiveWpmElement.innerHTML = number.toString();
   liveWpmElement.innerHTML = number.toString();
 }
 
