@@ -31,6 +31,26 @@
   }
 }
 
+#multiTimer {
+  position: fixed;
+  top: 25%;
+  left: 30%;
+  width: 40vw;
+  /*   height: 0.5rem; */
+  height: 0.5rem;
+  background: #00000050;
+  /*   background: #0f0f0f; */
+  /*   background: red; */
+  // transition: 1s linear;
+  z-index: -1;
+
+  &.multiTimerMain {
+    background: var(--main-color);
+  }
+
+}
+
+
 .pageTest {
   position: relative;
 

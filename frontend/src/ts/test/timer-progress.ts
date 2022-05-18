@@ -115,6 +115,7 @@ export function update(): void {
           SlowTimer.get() ? 0 : 1000,
           "linear"
         );
+        //$("#timer").clone().appendTo( "#timerWrapper" )
     } else if (Config.timerStyle === "text") {
       let displayTime = Misc.secondsToString(maxtime - time);
       if (maxtime === 0) {
